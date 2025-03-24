@@ -47,4 +47,13 @@ public class RestaurantServiceImpl implements RestaurantService {
                 .map(RestaurantMapper::toRestaurantDTO)
                 .toList();
     }
+
+    @Override
+    public List<RestaurantDTO> findByAddressAndMark(String address, Double mark) {
+        return restaurantRepository.findAll().stream()
+                .filter(restaurant -> restaurant.getAddress().toLowerCase().contains(address.toLowerCase()))
+                .filter(restaurant -> restaurant.getAverageCustomerRating() >= mark)
+                .map(RestaurantMapper::toRestaurantDTO)
+                .toList();
+    }
 }

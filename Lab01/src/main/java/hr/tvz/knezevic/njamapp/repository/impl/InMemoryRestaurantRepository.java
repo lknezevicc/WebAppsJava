@@ -3,6 +3,7 @@ package hr.tvz.knezevic.njamapp.repository.impl;
 
 import hr.tvz.knezevic.njamapp.model.Restaurant;
 import hr.tvz.knezevic.njamapp.repository.RestaurantRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.time.DayOfWeek;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
+@Profile("prod")
 public class InMemoryRestaurantRepository implements RestaurantRepository {
     private final List<Restaurant> restaurants = List.of(
             new Restaurant(1L, "Pizza House", "Zagrebačka 10", "099 111 222", "pizza@house.com",

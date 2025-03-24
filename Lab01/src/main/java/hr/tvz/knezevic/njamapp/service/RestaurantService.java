@@ -9,4 +9,5 @@ public interface RestaurantService {
     RestaurantDTO findById(Long id);
     List<RestaurantDTO> findNearest(String address);
     List<RestaurantDTO> findBest(Double mark);
+    List<RestaurantDTO> findByAddressAndMark(String address, Double mark);
 }

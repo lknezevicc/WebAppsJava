@@ -30,4 +30,9 @@ public class RestaurantController {
     public RestaurantDTO findById(@PathVariable Long id) {
         return restaurantService.findById(id);
     }
+
+    @GetMapping("/{address}/{mark}")
+    public List<RestaurantDTO> findByAddressAndMark(@PathVariable String address, @PathVariable Double mark) {
+        return restaurantService.findByAddressAndMark(address, mark);
+    }
 }
