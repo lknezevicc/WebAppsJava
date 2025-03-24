@@ -16,7 +16,10 @@ WebAppsJava/
 ```
 
 ## 📌 Laboratory Exercises
-- [Lab01](Lab01/README.md) [(Description PDF)](Lab01/Lab01.pdf)
+- [Lab01 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/3bf2e37)
+   - [Lab01 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/767af0f)
+   - [Lab01 - Additional tasks](Lab01/README.md)
+   - [Setup PDF](Lab01/Lab01.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
