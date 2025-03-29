@@ -14,7 +14,7 @@ public class RestaurantMapper {
                 restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getAddress(),
-                restaurant.isOpened(),
+                restaurant.getOpened(),
                 workloadPercentage
         );
     }

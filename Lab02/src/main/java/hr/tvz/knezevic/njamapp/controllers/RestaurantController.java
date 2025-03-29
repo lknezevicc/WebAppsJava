@@ -1,14 +1,18 @@
 package hr.tvz.knezevic.njamapp.controllers;
 
+import hr.tvz.knezevic.njamapp.command.RestaurantCommand;
 import hr.tvz.knezevic.njamapp.dto.RestaurantDTO;
+import hr.tvz.knezevic.njamapp.mappers.RestaurantMapper;
+import hr.tvz.knezevic.njamapp.model.Restaurant;
 import hr.tvz.knezevic.njamapp.service.RestaurantService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/restaurants")
@@ -20,14 +24,37 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-
     @GetMapping
     public List<RestaurantDTO> findAll() {
         return restaurantService.findAll();
     }
 
     @GetMapping("/{id}")
-    public RestaurantDTO findById(@PathVariable Long id) {
-        return restaurantService.findById(id);
+    public ResponseEntity<RestaurantDTO> findById(@PathVariable Long id) {
+        return restaurantService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<RestaurantDTO> findByName(@PathVariable String name) {
+        return restaurantService.findByName(name)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @PostMapping
+    public ResponseEntity<RestaurantDTO> addRestaurant(@Valid @RequestBody RestaurantCommand restaurantCommand) {
+        return restaurantService.addRestaurant(restaurantCommand)
+                .map(restaurant -> ResponseEntity.status(HttpStatus.CREATED).body(restaurant))
+                .orElse(ResponseEntity.status(HttpStatus.CONFLICT).build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRestaurant(@PathVariable Long id) {
+        return restaurantService.deleteRestaurant(id) ?
+                ResponseEntity.noContent().build() :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
 }

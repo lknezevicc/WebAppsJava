@@ -4,6 +4,6 @@ public record RestaurantDTO(
         Long id,
         String name,
         String address,
-        boolean opened,
+        Boolean opened,
         Double workloadPercentage
 ) {}
