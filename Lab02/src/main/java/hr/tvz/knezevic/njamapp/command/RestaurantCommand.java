@@ -10,10 +10,10 @@ import java.util.Map;
 public class RestaurantCommand {
     private Long id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Name is required")
     private String name;
 
-    @NotBlank(message = "Address is mandatory")
+    @NotBlank(message = "Address is required")
     private String address;
 
     @Pattern(regexp = "^09[0-9]{7}$", message = "Phone number must be Croatian format")

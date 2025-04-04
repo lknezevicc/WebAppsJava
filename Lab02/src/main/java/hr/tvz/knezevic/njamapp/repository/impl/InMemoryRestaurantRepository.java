@@ -71,7 +71,7 @@ public class InMemoryRestaurantRepository implements RestaurantRepository {
 
     @Override
     public List<Restaurant> findAll() {
-        return restaurants;
+        return new ArrayList<>(restaurants);
     }
 
     @Override
