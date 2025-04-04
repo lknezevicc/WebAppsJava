@@ -1,0 +1,50 @@
+.workload-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+
+  &.high {
+    background-color: red; // Velika opterećenost
+  }
+
+  &.medium {
+    background-color: yellow; // Srednja opterećenost
+  }
+
+  &.low {
+    background-color: green; // Mala opterećenost
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+
+  tr.selected {
+    background-color: #d1e7dd;
+  }
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #333;
+}

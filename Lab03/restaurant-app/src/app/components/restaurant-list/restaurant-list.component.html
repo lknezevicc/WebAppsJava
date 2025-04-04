@@ -1,0 +1,32 @@
+<h2>Restaurants</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Open</th>
+      <th>Load</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let restaurant of restaurants" (click)="selectRestaurant(restaurant)">
+      <td>{{ restaurant.name }}</td>
+      <td>{{ restaurant.opened ? 'Yes' : 'No' }}</td>
+      <td>
+        <span class="workload-indicator"
+          [ngClass]="restaurant.maxNumberOfOrders > 40 ? 'high' : 
+          (restaurant.maxNumberOfOrders > 20 ? 'medium' : 
+          'low')">
+        </span>
+        {{
+          restaurant.maxNumberOfOrders > 40
+            ? 'High'
+            : restaurant.maxNumberOfOrders > 20
+            ? 'Medium'
+            : 'Low'
+        }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-restaurant-details *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant"></app-restaurant-details>
