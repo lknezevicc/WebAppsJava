@@ -19,7 +19,12 @@ WebAppsJava/
 - [Lab01 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/3bf2e37)
    - [Lab01 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/767af0f)
    - [Lab01 - Additional tasks](Lab01/README.md)
-   - [Setup PDF](Lab01/Lab01.pdf)
+   - [Lab01 - Setup PDF](Lab01/Lab01.pdf)
+ 
+- [Lab02 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/a9c53ff)
+   - [Lab02 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/d7c41fd)
+   - [Lab02 - Additional tasks](Lab02/README.md)
+   - [Lab02 - Setup PDF](Lab02/Lab02.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
