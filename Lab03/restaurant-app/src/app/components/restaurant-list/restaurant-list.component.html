@@ -1,14 +1,16 @@
 <h2>Restaurants</h2>
+<label for="filter">Filter by name:</label>
+<input id="filter" type="text" [(ngModel)]="filterText" placeholder="Enter restaurant name" />
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Open</th>
-      <th>Load</th>
+      <th (click)="setSort('name')">Name</th>
+      <th (click)="setSort('opened')">Open</th>
+      <th (click)="setSort('load')">Load</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let restaurant of restaurants" (click)="selectRestaurant(restaurant)">
+    <tr *ngFor="let restaurant of filteredAndSortedRestaurants()" (click)="selectRestaurant(restaurant)">
       <td>{{ restaurant.name }}</td>
       <td>{{ restaurant.opened ? 'Yes' : 'No' }}</td>
       <td>

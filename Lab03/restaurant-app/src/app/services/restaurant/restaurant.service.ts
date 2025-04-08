@@ -28,7 +28,7 @@ export class RestaurantService {
       averageDeliveryTime: 15.0,
       averageCustomerRating: 4.5,
       maxNumberOfOrders: 15,
-      michelinStars: 2
+      michelinStars: 4
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export class RestaurantService {
       averageDeliveryTime: 25.0,
       averageCustomerRating: 4.2,
       maxNumberOfOrders: 40,
-      michelinStars: 1
+      michelinStars: 5
     },
     {
       id: 3,

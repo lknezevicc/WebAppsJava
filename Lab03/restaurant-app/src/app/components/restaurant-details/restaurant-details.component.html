@@ -1,14 +1,24 @@
 <h3>Restaurant Details</h3>
-<p><strong>Working Hours:</strong></p>
-<ul>
-  <li *ngFor="let entry of restaurant.workingHours | keyvalue">
-    {{ entry.key }}: {{ entry.value }}
-  </li>
-</ul>
-<p><strong>Address:</strong> {{ restaurant.address }}</p>
-<p><strong>Phone:</strong> {{ restaurant.phoneNumber }}</p>
-<p><strong>Email:</strong> {{ restaurant.email }}</p>
-<p><strong>Description:</strong> {{ restaurant.description }}</p>
-<p><strong>Average Delivery Time:</strong> {{ restaurant.averageDeliveryTime }} min</p>
-<p><strong>Rating:</strong> {{ restaurant.averageCustomerRating }}</p>
-<p><strong>Michelin Stars:</strong> {{ restaurant.michelinStars }}</p>
+<div *ngIf="!checkIfHighMichelinStars()">
+  <p><strong>Working Hours:</strong></p>
+  <ul>
+    <li *ngFor="let entry of restaurant.workingHours | keyvalue">
+      {{ entry.key }}: {{ entry.value }}
+    </li>
+  </ul>
+  <p><strong>Address:</strong> {{ restaurant.address }}</p>
+  <p><strong>Phone:</strong> {{ restaurant.phoneNumber }}</p>
+  <p><strong>Email:</strong> {{ restaurant.email }}</p>
+  <p><strong>Description:</strong> {{ restaurant.description }}</p>
+  <p><strong>Average Delivery Time:</strong> {{ restaurant.averageDeliveryTime }} min</p>
+  <p><strong>Rating:</strong> {{ restaurant.averageCustomerRating }}</p>
+  <p><strong>Michelin Stars:</strong> {{ restaurant.michelinStars }}</p>
+</div>
+
+<div *ngIf="checkIfHighMichelinStars() && restaurant">
+  <p><strong>Working Hours:</strong></p>
+  <p><strong>Address:</strong> {{ restaurant.address }}</p>
+  <p><strong>Phone:</strong> {{ restaurant.phoneNumber }}</p>
+  <p><strong>Email:</strong> {{ restaurant.email }}</p>
+  <p><strong>Michelin Stars:</strong> {{ restaurant.michelinStars }}</p>
+</div>

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
   selector: 'app-restaurant-details',
@@ -8,5 +7,9 @@ import { Restaurant } from '../../models/restaurant.model';
   styleUrl: './restaurant-details.component.scss'
 })
 export class RestaurantDetailsComponent {
-  @Input() restaurant!: Restaurant;
+  @Input() restaurant!: any;
+
+  checkIfHighMichelinStars(): boolean {
+    return this.restaurant.michelinStars > 3;
+  }
 }
