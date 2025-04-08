@@ -47,7 +47,7 @@ public class RestaurantController {
     public ResponseEntity<RestaurantDTO> addRestaurant(@Valid @RequestBody RestaurantCommand restaurantCommand) {
         return restaurantService.addRestaurant(restaurantCommand)
                 .map(restaurant -> ResponseEntity.status(HttpStatus.CREATED).body(restaurant))
-                .orElse(ResponseEntity.status(HttpStatus.CONFLICT).build());
+                .orElse(ResponseEntity.badRequest().build());
     }
 
     @DeleteMapping("/{id}")

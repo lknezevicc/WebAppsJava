@@ -11,8 +11,8 @@
     <groupId>hr.tvz.knezevic</groupId>
     <artifactId>njamApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Lab02</name>
-    <description>Lab02</description>
+    <name>njamAppBackend</name>
+    <description>njamAppBackend</description>
     <url/>
     <licenses>
         <license/>

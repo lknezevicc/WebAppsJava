@@ -64,32 +64,30 @@ public class RestaurantServiceImpl implements RestaurantService {
                         restaurant.getName().equalsIgnoreCase(restaurantCommand.getName()) &&
                         restaurant.getAddress().equalsIgnoreCase(restaurantCommand.getAddress()));
 
-        if (duplicateExists) {
-            return Optional.empty();
-        } else {
-            Long newId = restaurants.stream()
-                    .map(Restaurant::getId)
-                    .max(Long::compareTo)
-                    .orElse(0L) + 1;
+        if (duplicateExists) return Optional.empty();
 
-            Restaurant restaurant = new Restaurant(
-                    newId,
-                    restaurantCommand.getName(),
-                    restaurantCommand.getAddress(),
-                    restaurantCommand.getPhoneNumber(),
-                    restaurantCommand.getEmail(),
-                    restaurantCommand.getWorkingHours(),
-                    restaurantCommand.getDescription(),
-                    restaurantCommand.getOpened(),
-                    restaurantCommand.getAverageDeliveryTime(),
-                    restaurantCommand.getAverageCustomerRating(),
-                    restaurantCommand.getMaxNumberOfOrders(),
-                    restaurantCommand.getMichelinStars()
-            );
+        Long newId = restaurants.stream()
+                .map(Restaurant::getId)
+                .max(Long::compareTo)
+                .orElse(0L) + 1;
 
-            restaurantRepository.save(restaurant);
-            return Optional.of(RestaurantMapper.toRestaurantDTO(restaurant));
-        }
+        Restaurant restaurant = new Restaurant(
+                newId,
+                restaurantCommand.getName(),
+                restaurantCommand.getAddress(),
+                restaurantCommand.getPhoneNumber(),
+                restaurantCommand.getEmail(),
+                restaurantCommand.getWorkingHours(),
+                restaurantCommand.getDescription(),
+                restaurantCommand.getOpened(),
+                restaurantCommand.getAverageDeliveryTime(),
+                restaurantCommand.getAverageCustomerRating(),
+                restaurantCommand.getMaxNumberOfOrders(),
+                restaurantCommand.getMichelinStars()
+        );
+
+        restaurantRepository.save(restaurant);
+        return Optional.of(RestaurantMapper.toRestaurantDTO(restaurant));
     }
 
     @Override

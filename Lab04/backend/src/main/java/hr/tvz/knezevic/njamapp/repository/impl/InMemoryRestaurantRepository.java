@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Repository
 public class InMemoryRestaurantRepository implements RestaurantRepository {
-    private final List<Restaurant> restaurants = new ArrayList<Restaurant>();
+    private final List<Restaurant> restaurants = new ArrayList<>();
 
     @PostConstruct
     private void initializeData() {
