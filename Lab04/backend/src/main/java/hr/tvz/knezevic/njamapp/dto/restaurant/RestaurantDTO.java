@@ -1,4 +1,4 @@
-package hr.tvz.knezevic.njamapp.dto;
+package hr.tvz.knezevic.njamapp.dto.restaurant;
 
 public record RestaurantDTO(
         Long id,

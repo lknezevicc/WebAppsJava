@@ -11,5 +11,6 @@ public interface RestaurantRepository {
     Optional<Restaurant> findById(Long id);
     Optional<Restaurant> findByName(String name);
     void save(Restaurant restaurant);
+    void update(Restaurant restaurant);
     boolean deleteById(Long id);
 }

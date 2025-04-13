@@ -1,9 +1,9 @@
 package hr.tvz.knezevic.njamapp.command;
 
+import hr.tvz.knezevic.njamapp.enums.DayOfWeek;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import java.time.DayOfWeek;
 import java.util.Map;
 
 @Data
@@ -16,7 +16,7 @@ public class RestaurantCommand {
     @NotBlank(message = "Address is mandatory")
     private String address;
 
-    @Pattern(regexp = "^09[0-9]{7}$", message = "Phone number must be Croatian format")
+    @Pattern(regexp = "^09[0-9]{6,8}$", message = "Phone number must be Croatian format")
     @NotBlank(message = "Phone number is required")
     private String phoneNumber;
 

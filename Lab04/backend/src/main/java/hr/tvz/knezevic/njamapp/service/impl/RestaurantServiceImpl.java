@@ -1,7 +1,8 @@
 package hr.tvz.knezevic.njamapp.service.impl;
 
 import hr.tvz.knezevic.njamapp.command.RestaurantCommand;
-import hr.tvz.knezevic.njamapp.dto.RestaurantDTO;
+import hr.tvz.knezevic.njamapp.dto.restaurant.RestaurantDTO;
+import hr.tvz.knezevic.njamapp.dto.restaurant.RestaurantDetailsDTO;
 import hr.tvz.knezevic.njamapp.mappers.RestaurantMapper;
 import hr.tvz.knezevic.njamapp.model.Restaurant;
 import hr.tvz.knezevic.njamapp.repository.RestaurantRepository;
@@ -29,15 +30,15 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Optional<RestaurantDTO> findById(Long id) {
+    public Optional<RestaurantDetailsDTO> findById(Long id) {
         return restaurantRepository.findById(id)
-                .map(RestaurantMapper::toRestaurantDTO);
+                .map(RestaurantMapper::toRestaurantDetailsDTO);
     }
 
     @Override
-    public Optional<RestaurantDTO> findByName(String name) {
+    public Optional<RestaurantDetailsDTO> findByName(String name) {
         return restaurantRepository.findByName(name)
-                .map(RestaurantMapper::toRestaurantDTO);
+                .map(RestaurantMapper::toRestaurantDetailsDTO);
     }
 
     @Override
@@ -88,6 +89,29 @@ public class RestaurantServiceImpl implements RestaurantService {
 
         restaurantRepository.save(restaurant);
         return Optional.of(RestaurantMapper.toRestaurantDTO(restaurant));
+    }
+
+    @Override
+    public Optional<RestaurantDetailsDTO> updateRestaurant(Long id, RestaurantCommand restaurantCommand) {
+        Optional<Restaurant> restaurant = restaurantRepository.findById(id);
+        if (restaurant.isEmpty()) return Optional.empty();
+
+        Restaurant updatedRestaurant = restaurant.get();
+        updatedRestaurant.setName(restaurantCommand.getName());
+        updatedRestaurant.setAddress(restaurantCommand.getAddress());
+        updatedRestaurant.setPhoneNumber(restaurantCommand.getPhoneNumber());
+        updatedRestaurant.setEmail(restaurantCommand.getEmail());
+        updatedRestaurant.setWorkingHours(restaurantCommand.getWorkingHours());
+        updatedRestaurant.setDescription(restaurantCommand.getDescription());
+        updatedRestaurant.setOpened(restaurantCommand.getOpened());
+        updatedRestaurant.setAverageDeliveryTime(restaurantCommand.getAverageDeliveryTime());
+        updatedRestaurant.setAverageCustomerRating(restaurantCommand.getAverageCustomerRating());
+        updatedRestaurant.setMaxNumberOfOrders(restaurantCommand.getMaxNumberOfOrders());
+        updatedRestaurant.setMichelinStars(restaurantCommand.getMichelinStars());
+
+        restaurantRepository.update(updatedRestaurant);
+
+        return Optional.of(RestaurantMapper.toRestaurantDetailsDTO(updatedRestaurant));
     }
 
     @Override

@@ -5,28 +5,122 @@
       <th>Name</th>
       <th>Open</th>
       <th>Load</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let restaurant of restaurants" (click)="selectRestaurant(restaurant)">
-      <td>{{ restaurant.name }}</td>
+    <tr *ngFor="let restaurant of restaurants">
+      <td><a href="/restaurants/{{ restaurant.id }}">{{ restaurant.name }}</a></td>
       <td>{{ restaurant.opened ? 'Yes' : 'No' }}</td>
       <td>
         <span class="workload-indicator"
-          [ngClass]="restaurant.maxNumberOfOrders > 40 ? 'high' : 
-          (restaurant.maxNumberOfOrders > 20 ? 'medium' : 
-          'low')">
+          [ngClass]="getWorkloadPercentageLabel(restaurant.workloadPercentage)">
         </span>
         {{
-          restaurant.maxNumberOfOrders > 40
-            ? 'High'
-            : restaurant.maxNumberOfOrders > 20
-            ? 'Medium'
-            : 'Low'
+          getWorkloadPercentageLabel(restaurant.workloadPercentage).toUpperCase()
         }}
       </td>
+      <td><button *ngIf="restaurant.id !== undefined" (click)="onDelete(restaurant.id)">Delete</button></td>
     </tr>
   </tbody>
 </table>
 
-<app-restaurant-details *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant"></app-restaurant-details>
+
+<h2>Add Restaurant</h2>
+<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" [(ngModel)]="formModel.name" required />
+  </div>
+
+  <div>
+    <label for="address">Address</label>
+    <input id="address" name="address" type="text" [(ngModel)]="formModel.address" required />
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phoneNumber" name="phoneNumber" type="text" [(ngModel)]="formModel.phoneNumber" required />
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" [(ngModel)]="formModel.email" required />
+  </div>
+
+  <fieldset>
+    <legend>Working Hours</legend>
+    <div *ngFor="let day of daysOfWeek">
+      <label [for]="day">{{ day }}</label>
+      <input
+        [id]="day"
+        type="text"
+        [(ngModel)]="workingHours[day]"
+        name="workingHours_{{ day }}"
+        placeholder="e.g. 08:00 - 16:00"
+      />
+    </div>
+  </fieldset>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" [(ngModel)]="formModel.description" required></textarea>
+  </div>
+
+  <div>
+    <label for="opened">Opened</label>
+    <input id="opened" name="opened" type="checkbox" [(ngModel)]="formModel.opened" />
+  </div>
+
+  <div>
+    <label for="averageDeliveryTime">Average Delivery Time</label>
+    <input
+      id="averageDeliveryTime"
+      name="averageDeliveryTime"
+      type="number"
+      min="1"
+      [(ngModel)]="formModel.averageDeliveryTime"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="averageCustomerRating">Average Customer Rating</label>
+    <input
+      id="averageCustomerRating"
+      name="averageCustomerRating"
+      type="number"
+      min="1"
+      max="5"
+      [(ngModel)]="formModel.averageCustomerRating"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="maxNumberOfOrders">Max Number of Orders</label>
+    <input
+      id="maxNumberOfOrders"
+      name="maxNumberOfOrders"
+      type="number"
+      min="1"
+      [(ngModel)]="formModel.maxNumberOfOrders"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="michelinStars">Michelin Stars</label>
+    <input
+      id="michelinStars"
+      name="michelinStars"
+      type="number"
+      min="0"
+      max="3"
+      [(ngModel)]="formModel.michelinStars"
+      required
+    />
+  </div>
+
+  <button type="submit" [disabled]="!formRef.valid">Add Restaurant</button>
+</form>

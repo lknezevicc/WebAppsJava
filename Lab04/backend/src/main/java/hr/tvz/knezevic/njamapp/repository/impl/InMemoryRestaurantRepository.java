@@ -3,10 +3,10 @@ package hr.tvz.knezevic.njamapp.repository.impl;
 
 import hr.tvz.knezevic.njamapp.model.Restaurant;
 import hr.tvz.knezevic.njamapp.repository.RestaurantRepository;
+import hr.tvz.knezevic.njamapp.enums.DayOfWeek;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
-import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -91,6 +91,12 @@ public class InMemoryRestaurantRepository implements RestaurantRepository {
     @Override
     public void save(Restaurant restaurant) {
         restaurants.add(restaurant);
+    }
+
+    @Override
+    public void update(Restaurant restaurant) {
+        int index = restaurants.indexOf(restaurant);
+        restaurants.set(index, restaurant);
     }
 
     @Override

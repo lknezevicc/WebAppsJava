@@ -1,4 +1,4 @@
-<h3>Restaurant Details</h3>
+<h3>{{ restaurant.name }}</h3>
 <p><strong>Working Hours:</strong></p>
 <ul>
   <li *ngFor="let entry of restaurant.workingHours | keyvalue">
@@ -12,3 +12,68 @@
 <p><strong>Average Delivery Time:</strong> {{ restaurant.averageDeliveryTime }} min</p>
 <p><strong>Rating:</strong> {{ restaurant.averageCustomerRating }}</p>
 <p><strong>Michelin Stars:</strong> {{ restaurant.michelinStars }}</p>
+
+
+<h3>Edit Restaurant</h3>
+<form #formRef="ngForm" (ngSubmit)="onUpdate(formRef)">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" [(ngModel)]="restaurant.name" name="name" required />
+  </div>
+
+  <div>
+    <label for="address">Address</label>
+    <input id="address" type="text" [(ngModel)]="restaurant.address" name="address" required />
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phoneNumber" type="text" [(ngModel)]="restaurant.phoneNumber" name="phoneNumber" required />
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="email" [(ngModel)]="restaurant.email" name="email" required />
+  </div>
+
+  <fieldset>
+    <legend>Working Hours</legend>
+    <div *ngFor="let day of daysOfWeek">
+      <label [for]="day">{{ day }}</label>
+      <input
+        [id]="day"
+        type="text"
+        [(ngModel)]="restaurant.workingHours[day]"
+        name="workingHours_{{ day }}"
+        placeholder="e.g. 08:00 - 16:00"
+      />
+    </div>
+  </fieldset>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" [(ngModel)]="restaurant.description" name="description" required></textarea>
+  </div>
+
+  <div>
+    <label for="opened">Opened</label>
+    <input id="opened" type="checkbox" [(ngModel)]="restaurant.opened" name="opened" />
+  </div>
+
+  <div>
+    <label for="averageDeliveryTime">Average Delivery Time</label>
+    <input id="averageDeliveryTime" type="number" [(ngModel)]="restaurant.averageDeliveryTime" name="averageDeliveryTime" required />
+  </div>
+
+  <div>
+    <label for="averageCustomerRating">Average Customer Rating</label>
+    <input id="averageCustomerRating" type="number" [(ngModel)]="restaurant.averageCustomerRating" name="averageCustomerRating" required />
+  </div>
+
+  <div>
+    <label for="michelinStars">Michelin Stars</label>
+    <input id="michelinStars" type="number" [(ngModel)]="restaurant.michelinStars" name="michelinStars" required />
+  </div>
+
+  <button type="submit" [disabled]="!formRef.valid">Update Restaurant</button>
+</form>

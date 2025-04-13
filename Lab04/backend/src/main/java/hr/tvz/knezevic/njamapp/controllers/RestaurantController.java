@@ -1,9 +1,8 @@
 package hr.tvz.knezevic.njamapp.controllers;
 
 import hr.tvz.knezevic.njamapp.command.RestaurantCommand;
-import hr.tvz.knezevic.njamapp.dto.RestaurantDTO;
-import hr.tvz.knezevic.njamapp.mappers.RestaurantMapper;
-import hr.tvz.knezevic.njamapp.model.Restaurant;
+import hr.tvz.knezevic.njamapp.dto.restaurant.RestaurantDTO;
+import hr.tvz.knezevic.njamapp.dto.restaurant.RestaurantDetailsDTO;
 import hr.tvz.knezevic.njamapp.service.RestaurantService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/restaurants")
+@CrossOrigin(origins = "http://localhost:4200")
 public class RestaurantController {
     private final RestaurantService restaurantService;
 
@@ -30,14 +29,14 @@ public class RestaurantController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RestaurantDTO> findById(@PathVariable Long id) {
+    public ResponseEntity<RestaurantDetailsDTO> findById(@PathVariable Long id) {
         return restaurantService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<RestaurantDTO> findByName(@PathVariable String name) {
+    public ResponseEntity<RestaurantDetailsDTO> findByName(@PathVariable String name) {
         return restaurantService.findByName(name)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -48,6 +47,13 @@ public class RestaurantController {
         return restaurantService.addRestaurant(restaurantCommand)
                 .map(restaurant -> ResponseEntity.status(HttpStatus.CREATED).body(restaurant))
                 .orElse(ResponseEntity.badRequest().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<RestaurantDetailsDTO> updateRestaurant(@PathVariable Long id, @Valid @RequestBody RestaurantCommand restaurantCommand) {
+        return restaurantService.updateRestaurant(id, restaurantCommand)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @DeleteMapping("/{id}")
