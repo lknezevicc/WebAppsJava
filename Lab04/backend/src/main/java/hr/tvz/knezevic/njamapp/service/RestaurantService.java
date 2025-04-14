@@ -11,6 +11,7 @@ public interface RestaurantService {
     List<RestaurantDTO> findAll();
     Optional<RestaurantDetailsDTO> findById(Long id);
     Optional<RestaurantDetailsDTO> findByName(String name);
+    List<RestaurantDetailsDTO> findByMichelinStar(Integer stars);
     List<RestaurantDTO> findNearest(String address);
     List<RestaurantDTO> findBest(Double mark);
     Optional<RestaurantDTO> addRestaurant(RestaurantCommand restaurantCommand);

@@ -42,6 +42,13 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
+    public List<RestaurantDetailsDTO> findByMichelinStar(Integer stars) {
+        return restaurantRepository.findByMichelinStar(stars)
+                .stream().map(RestaurantMapper::toRestaurantDetailsDTO)
+                .toList();
+    }
+
+    @Override
     public List<RestaurantDTO> findNearest(String address) {
         return restaurantRepository.findAll().stream()
                 .filter(restaurant -> restaurant.getAddress().equalsIgnoreCase(address))

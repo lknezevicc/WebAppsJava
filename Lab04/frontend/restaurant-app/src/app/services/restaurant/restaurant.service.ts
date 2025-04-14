@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../../models/restaurant.model';
-import { DayOfWeek } from '../../enums/day-of-week.enum';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
@@ -31,5 +30,9 @@ export class RestaurantService {
 
   deleteRestaurant(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/${id}`);
+  }
+
+  getRestaurantsByMichelinStar(star: number): Observable<Restaurant[]> {
+    return this.httpClient.get<Restaurant[]>(`${this.baseUrl}/michelinStar/${star}`);
   }
 }

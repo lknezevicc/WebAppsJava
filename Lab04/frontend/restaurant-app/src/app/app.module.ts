@@ -8,13 +8,15 @@ import { RestaurantDetailsComponent } from './components/restaurant-details/rest
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RestaurantListMichelinFilterComponent } from './components/restaurant-list-michelin-filter/restaurant-list-michelin-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantListComponent,
     RestaurantDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    RestaurantListMichelinFilterComponent
   ],
   imports: [
     BrowserModule,

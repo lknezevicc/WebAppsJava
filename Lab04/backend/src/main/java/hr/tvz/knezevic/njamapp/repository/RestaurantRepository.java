@@ -10,6 +10,7 @@ public interface RestaurantRepository {
     List<Restaurant> findAll();
     Optional<Restaurant> findById(Long id);
     Optional<Restaurant> findByName(String name);
+    List<Restaurant> findByMichelinStar(Integer stars);
     void save(Restaurant restaurant);
     void update(Restaurant restaurant);
     boolean deleteById(Long id);

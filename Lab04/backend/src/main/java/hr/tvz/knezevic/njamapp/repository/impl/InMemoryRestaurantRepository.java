@@ -89,6 +89,13 @@ public class InMemoryRestaurantRepository implements RestaurantRepository {
     }
 
     @Override
+    public List<Restaurant> findByMichelinStar(Integer stars) {
+        return restaurants.stream()
+                .filter(restaurant -> restaurant.getMichelinStars().equals(stars))
+                .toList();
+    }
+
+    @Override
     public void save(Restaurant restaurant) {
         restaurants.add(restaurant);
     }

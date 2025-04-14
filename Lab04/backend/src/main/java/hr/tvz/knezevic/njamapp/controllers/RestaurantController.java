@@ -42,6 +42,11 @@ public class RestaurantController {
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    @GetMapping("/michelinStar/{stars}")
+    public ResponseEntity<List<RestaurantDetailsDTO>> findByMichelinStar(@PathVariable Integer stars) {
+        return ResponseEntity.ok(restaurantService.findByMichelinStar(stars));
+    }
+
     @PostMapping
     public ResponseEntity<RestaurantDTO> addRestaurant(@Valid @RequestBody RestaurantCommand restaurantCommand) {
         return restaurantService.addRestaurant(restaurantCommand)
