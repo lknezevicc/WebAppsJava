@@ -1,0 +1,37 @@
+<h2>Restaurants with {{ selectedStars }} Michelin star</h2>
+
+<label for="starsSelect">Choose number of Michelin stars:</label>
+<select id="starsSelect" [(ngModel)]="selectedStars" (change)="getRestaurants(selectedStars)">
+  <option *ngFor="let star of michelinStarOptions" [value]="star">{{ star }}</option>
+</select>
+
+<div *ngIf="restaurants.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Open</th>
+        <th>Michelin Stars</th>
+        <th>Description</th>
+        <th>Average Customer Rating</th>
+        <th>Average Delivery Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let restaurant of restaurants">
+        <td>{{ restaurant.name }}</td>
+        <td>{{ restaurant.opened ? 'Yes' : 'No' }}</td>
+        <td>{{ restaurant.michelinStars }}</td>
+        <td>{{ restaurant.description }}</td>
+        <td [ngClass]="getCustomerRatingClass(restaurant.averageCustomerRating)">
+          {{ restaurant.averageCustomerRating }}
+        </td>
+        <td [ngClass]="getDeliveryTimeRatingClass(restaurant.averageDeliveryTime)">{{ restaurant.averageDeliveryTime }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="restaurants.length === 0">
+  <p><strong>No restaurants found with {{ selectedStars }} Michelin star.</strong></p>
+</div>
