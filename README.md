@@ -26,10 +26,15 @@ WebAppsJava/
    - [Lab02 - Additional tasks](Lab02/README.md)
    - [Lab02 - Setup PDF](Lab02/Lab02.pdf)
 
- - [Lab03 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/4ed888b)
-   - [Lab03 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/edf7585)
+ - [Lab03 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/3a7fe0b)
+   - [Lab03 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/00eda46)
    - [Lab03 - Additional tasks](Lab03/restaurant-app/README.md)
    - [Lab03 - Setup PDF](Lab03/Lab03.pdf)
+  
+- [Lab04 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/4ed888b)
+   - [Lab04 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/edf7585)
+   - [Lab04 - Additional tasks](Lab04/README.md)
+   - [Lab04 - Setup PDF](Lab04/Lab04.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
