@@ -62,17 +62,23 @@
 
   <div>
     <label for="averageDeliveryTime">Average Delivery Time</label>
-    <input id="averageDeliveryTime" type="number" [(ngModel)]="restaurant.averageDeliveryTime" name="averageDeliveryTime" required />
+    <input id="averageDeliveryTime" type="number" min="1" [(ngModel)]="restaurant.averageDeliveryTime" name="averageDeliveryTime" required />
   </div>
 
   <div>
     <label for="averageCustomerRating">Average Customer Rating</label>
-    <input id="averageCustomerRating" type="number" [(ngModel)]="restaurant.averageCustomerRating" name="averageCustomerRating" required />
+    <input id="averageCustomerRating" type="number" min="1" max="5" [(ngModel)]="restaurant.averageCustomerRating" name="averageCustomerRating" required />
+  </div>
+
+  <div>
+    <label for="maxNumberOfOrders">Max Number of Orders</label>
+    <input id="maxNumberOfOrders" name="maxNumberOfOrders" type="number" min="1" [(ngModel)]="restaurant.maxNumberOfOrders" required
+    />
   </div>
 
   <div>
     <label for="michelinStars">Michelin Stars</label>
-    <input id="michelinStars" type="number" [(ngModel)]="restaurant.michelinStars" name="michelinStars" required />
+    <input id="michelinStars" type="number" min="0" max="3"[(ngModel)]="restaurant.michelinStars" name="michelinStars" required />
   </div>
 
   <button type="submit" [disabled]="!formRef.valid">Update Restaurant</button>
