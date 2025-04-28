@@ -35,6 +35,10 @@ WebAppsJava/
    - [Lab04 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/edf7585)
    - [Lab04 - Additional tasks](Lab04/README.md)
    - [Lab04 - Setup PDF](Lab04/Lab04.pdf)
+ 
+- [Lab05 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/e32d1a2)
+   - [Lab05 - Additional tasks](Lab05/README.md)
+   - [Lab05 - Setup PDF](Lab05/Lab05.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
