@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     rating TINYINT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
     restaurant_id BIGINT,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE
 );

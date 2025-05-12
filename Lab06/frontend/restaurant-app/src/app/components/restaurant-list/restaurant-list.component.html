@@ -25,6 +25,30 @@
   </tbody>
 </table>
 
+<div class="top-rated-box">
+  <h3>Top Rated Restaurants</h3>
+
+  <div>
+    <strong>Last Month:</strong>
+    <div *ngIf="topRatedRestaurantLastMonth; else noMonth">
+      {{ topRatedRestaurantLastMonth.name }} - {{ topRatedRestaurantLastMonth.address }}: {{ topRatedRestaurantLastMonth.averageCustomerRating }}
+    </div>
+    <ng-template #noMonth>
+      <span class="no-data">No data available.</span>
+    </ng-template>
+  </div>
+
+  <div>
+    <strong>Last Week:</strong>
+    <div *ngIf="topRatedRestaurantLastWeek; else noWeek">
+      {{ topRatedRestaurantLastWeek.name }} - {{ topRatedRestaurantLastWeek.address }}: {{ topRatedRestaurantLastWeek.averageCustomerRating }}
+    </div>
+    <ng-template #noWeek>
+      <span class="no-data">No data available.</span>
+    </ng-template>
+  </div>
+</div>
+
 
 <h2>Add Restaurant</h2>
 <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
