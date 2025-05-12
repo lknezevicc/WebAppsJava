@@ -55,22 +55,27 @@ INSERT INTO working_hours (restaurant_id, day_of_week, working_hour) VALUES
     (5, 'SATURDAY', '10:00 - 21:00'),
     (5, 'SUNDAY', '10:00 - 19:00');
 
+-- Pizza House
+INSERT INTO reviews (title, description, rating, restaurant_id) VALUES
+    ('Great Pizza', 'Excellent pizza, fast delivery, and friendly staff.', 5, 1),
+    ('Highly Recommended', 'Very tasty food, but the portion could be bigger.', 4, 1);
+
 -- Burger King
-INSERT INTO reviews (title, description, rating, created_at, restaurant_id) VALUES
-    ('Fast and Tasty', 'Classic fast food, great burger, fries slightly overcooked.', 4, '2025-05-09 13:20:00', 2),
-    ('Good Choice', 'Quick service, tasty burgers, average atmosphere.', 3, '2025-04-20 17:45:00', 2);
+INSERT INTO reviews (title, description, rating, restaurant_id) VALUES
+    ('Fast and Tasty', 'Classic fast food, great burger, fries slightly overcooked.', 4, 2),
+    ('Good Choice', 'Quick service, tasty burgers, average atmosphere.', 3, 2);
 
 -- Sushi Bar
-INSERT INTO reviews (title, description, rating, created_at, restaurant_id) VALUES
-    ('Fresh Sushi', 'The best sushi I’ve had in Croatia.', 5, '2025-05-05 19:30:00', 3),
-    ('Sushi Dinner', 'Tasty and fresh, but a bit pricey.', 4, '2025-04-15 12:10:00', 3);
+INSERT INTO reviews (title, description, rating, restaurant_id) VALUES
+    ('Fresh Sushi', 'The best sushi I’ve had in Croatia.', 5, 3),
+    ('Sushi Dinner', 'Tasty and fresh, but a bit pricey.', 4, 3);
 
 -- BBQ Joint
-INSERT INTO reviews (title, description, rating, created_at, restaurant_id) VALUES
-    ('Delicious Ribs', 'Perfectly smoked ribs, meat falls off the bone.', 5, '2025-04-28 14:00:00', 4),
-    ('BBQ Atmosphere', 'Good food, but the service could be faster.', 4, '2025-03-25 18:20:00', 4);
+INSERT INTO reviews (title, description, rating, restaurant_id) VALUES
+    ('Delicious Ribs', 'Perfectly smoked ribs, meat falls off the bone.', 5, 4),
+    ('BBQ Atmosphere', 'Good food, but the service could be faster.', 4, 4);
 
 -- Healthy Bites
-INSERT INTO reviews (title, description, rating, created_at, restaurant_id) VALUES
-    ('Healthy and Tasty', 'Nutritious and delicious food, highly recommended.', 5, '2025-05-10 11:00:00', 5),
-    ('Great Lunch', 'Perfect choice for a healthy lunch downtown.', 5, '2025-04-22 13:15:00', 5);
+INSERT INTO reviews (title, description, rating, restaurant_id) VALUES
+    ('Healthy and Tasty', 'Nutritious and delicious food, highly recommended.', 5, 5),
+    ('Great Lunch', 'Perfect choice for a healthy lunch downtown.', 5, 5);

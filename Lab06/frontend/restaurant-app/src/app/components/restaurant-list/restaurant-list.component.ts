@@ -4,7 +4,6 @@ import { RestaurantService } from '../../services/restaurant/restaurant.service'
 import { NgForm } from '@angular/forms';
 import { DayOfWeek } from '../../enums/day-of-week.enum';
 import { WorkingHour } from '../../models/workingHour.model';
-import { ReviewService } from '../../services/review/review.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -17,17 +16,11 @@ export class RestaurantListComponent implements OnInit {
   daysOfWeek = Object.values(DayOfWeek);
   workingHours: WorkingHour[] = [];
   formModel: any = {};
-  topRatedRestaurantLastMonth!: Restaurant;
-  topRatedRestaurantLastWeek!: Restaurant;
 
-  constructor(
-    private restaurantService: RestaurantService,
-    private revirewService: ReviewService
-  ) {}
+  constructor(private restaurantService: RestaurantService) {}
 
   ngOnInit(): void {
     this.getRestaurants();
-    this.getTopRatedRestaurants();
   }
 
   getWorkloadPercentageLabel(workloadPercentage: number | undefined): string {
@@ -89,26 +82,4 @@ export class RestaurantListComponent implements OnInit {
     }
     return entry;
   }
-
-  getTopRatedRestaurants(): void {
-    this.revirewService.getTopRatedRestaurantLastMonth().subscribe({
-      next: (restaurant) => {
-        this.topRatedRestaurantLastMonth = restaurant;
-      },
-      error: (error) => {
-        console.error('Error fetching top rated restaurant last month:', error);
-      }
-    });
-
-    this.revirewService.getTopRatedRestaurantLastWeek().subscribe({
-      next: (restaurant) => {
-        this.topRatedRestaurantLastWeek = restaurant;
-      },
-      error: (error) => {
-        console.error('Error fetching top rated restaurant last week:', error);
-      }
-    });
-  }
-
-
 }

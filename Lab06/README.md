@@ -1,16 +1,9 @@
 # 📝 Tasks
 
-1. **Use only JPA for data access**
-    - All database interactions must be implemented using standard Spring Data JPA repositories.
 
-2. **Add `createdAt` Timestamp to Review Model**
-    - Apply all required changes in the service layer, controller layer, and DTO/command classes to support this field.
 
-3. **Display Top-Rated Restaurants on the Frontend**
-    - Implement endpoints in the backend that return the restaurant with the highest average rating:
-        - From the **last month**
-        - From the **last week**
-    - On the frontend (Angular), fetch this data and display the top-rated restaurants in a visually clear section.
+
+
 
 ## 🛠️ Environment Note
 

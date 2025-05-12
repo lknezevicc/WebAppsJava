@@ -25,24 +25,3 @@ ul {
     }
   }
 }
-
-form {
-  max-width: 300px;
-
-  label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  button {
-    width: 100%;
-    padding: 0.5rem;
-  }
-}
