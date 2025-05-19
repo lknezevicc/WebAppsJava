@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a routerLink="/" routerLinkActive="active" class="nav-link">Restaurants List</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn()">
+      <button (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</nav>
