@@ -44,6 +44,9 @@ WebAppsJava/
    - [Lab06 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/aba5798)
    - [Lab06 - Additional tasks](Lab06/README.md)
    - [Lab06 - Setup PDF](Lab06/Lab06.pdf)
+ 
+- [Lab07 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/c1f3c8e)
+   - [Lab07 - Setup PDF](Lab07/Lab07.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
