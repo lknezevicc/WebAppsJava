@@ -3,6 +3,9 @@
     <li class="nav-item">
       <a routerLink="/" routerLinkActive="active" class="nav-link">Restaurants List</a>
     </li>
+    <li class="nav-item">
+      <a routerLink="/current-user" routerLinkActive="active" class="nav-link">Current User</a>
+    </li>
     <li class="nav-item" *ngIf="isLoggedIn()">
       <button (click)="logout()">Logout</button>
     </li>

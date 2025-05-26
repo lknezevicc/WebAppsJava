@@ -11,8 +11,7 @@ interface JwtPayload {
 }
 
 export function getDecodedToken(): JwtPayload | null {
-  const authService = inject(AuthService);
-  const token = authService.getAccessToken();
+  const token = localStorage.getItem('accessToken');
   if (!token) return null;
 
   try {
@@ -30,7 +29,6 @@ export function getUsername(): string | null {
 
 export function hasRole(role: string): boolean {
   const decoded = getDecodedToken();
-  console.log('Decoded token:', decoded);
   return decoded?.roles?.includes(role) || false;
 }
 

@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantReviewsComponent } from './components/restaurant-reviews/restaurant-reviews.component';
 import { LoginComponent } from './components/login/login.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { authInterceptor } from './interceptors/auth.interceptor';
     RestaurantDetailsComponent,
     NavbarComponent,
     RestaurantReviewsComponent,
-    LoginComponent
+    LoginComponent,
+    CurrentUserComponent
   ],
   imports: [
     BrowserModule,

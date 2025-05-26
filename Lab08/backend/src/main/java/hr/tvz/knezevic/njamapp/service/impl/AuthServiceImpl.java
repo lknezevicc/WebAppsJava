@@ -67,6 +67,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void delete(RefreshTokenRequestDTO refreshTokenRequestDTO) {
         refreshTokenService.findByToken(refreshTokenRequestDTO.token())
-                .ifPresent(refreshTokenService::delete);
+                .ifPresent(token -> refreshTokenService.deleteById(token.getId()));
     }
 }
