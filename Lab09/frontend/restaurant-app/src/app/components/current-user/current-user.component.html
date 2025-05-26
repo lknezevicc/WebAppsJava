@@ -1,0 +1,11 @@
+<div class="user-card">
+  <h2>{{ currentUser.firstName }} {{ currentUser.lastName }}</h2>
+  <p class="username">{{ currentUser.username }}</p>
+
+  <div class="group-section" *ngIf="currentUser.userGroups.length > 0">
+    <h4>Roles:</h4>
+    <div class="badges">
+      <span class="badge" *ngFor="let role of currentUser.userGroups">{{ role.role }}</span>
+    </div>
+  </div>
+</div>
