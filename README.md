@@ -47,6 +47,11 @@ WebAppsJava/
  
 - [Lab07 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/c1f3c8e)
    - [Lab07 - Setup PDF](Lab07/Lab07.pdf)
+ 
+- [Lab08 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/6fe2fdf)
+   - [Lab08 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/a0b33ef)
+   - [Lab08 - Additional tasks](Lab08/README.md)
+   - [Lab08 - Setup PDF](Lab08/Lab08.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
