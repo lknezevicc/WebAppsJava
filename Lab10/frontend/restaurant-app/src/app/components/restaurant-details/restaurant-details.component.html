@@ -1,5 +1,6 @@
 <h3>{{ restaurant.name }}</h3>
-<p><strong>Working Hours:</strong></p>
+
+<p><strong>{{ 'RESTAURANT_DETAILS.WORKING_HOURS' | translate }}</strong></p>
 <ul>
   <ng-container *ngFor="let entry of restaurant.workingHours">
     <li *ngIf="entry.workingHour">
@@ -7,40 +8,41 @@
     </li>
   </ng-container>
 </ul>
-<p><strong>Address:</strong> {{ restaurant.address }}</p>
-<p><strong>Phone:</strong> {{ restaurant.phoneNumber }}</p>
-<p><strong>Email:</strong> {{ restaurant.email }}</p>
-<p><strong>Description:</strong> {{ restaurant.description }}</p>
-<p><strong>Average Delivery Time:</strong> {{ restaurant.averageDeliveryTime }} min</p>
-<p><strong>Rating:</strong> {{ restaurant.averageCustomerRating }}</p>
-<p><strong>Michelin Stars:</strong> {{ restaurant.michelinStars }}</p>
+
+<p><strong>{{ 'RESTAURANT_DETAILS.ADDRESS' | translate }}</strong> {{ restaurant.address }}</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.PHONE' | translate }}</strong> {{ restaurant.phoneNumber }}</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.EMAIL' | translate }}</strong> {{ restaurant.email }}</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.DESCRIPTION' | translate }}</strong> {{ restaurant.description }}</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.AVERAGE_DELIVERY_TIME' | translate }}</strong> {{ restaurant.averageDeliveryTime }} min</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.RATING' | translate }}</strong> {{ restaurant.averageCustomerRating }}</p>
+<p><strong>{{ 'RESTAURANT_DETAILS.MICHELIN_STARS' | translate }}</strong> {{ restaurant.michelinStars }}</p>
 
 <app-restaurant-reviews [restaurantId]="restaurantId"></app-restaurant-reviews>
 
-<h3>Edit Restaurant</h3>
+<h3>{{ 'RESTAURANT_DETAILS.EDIT_TITLE' | translate }}</h3>
 <form #formRef="ngForm" (ngSubmit)="onUpdate(formRef)">
   <div>
-    <label for="name">Name</label>
+    <label for="name">{{ 'RESTAURANT_DETAILS.NAME' | translate }}</label>
     <input id="name" type="text" [(ngModel)]="restaurant.name" name="name" required />
   </div>
 
   <div>
-    <label for="address">Address</label>
+    <label for="address">{{ 'RESTAURANT_DETAILS.ADDRESS' | translate }}</label>
     <input id="address" type="text" [(ngModel)]="restaurant.address" name="address" required />
   </div>
 
   <div>
-    <label for="phoneNumber">Phone Number</label>
+    <label for="phoneNumber">{{ 'RESTAURANT_DETAILS.PHONE_NUMBER' | translate }}</label>
     <input id="phoneNumber" type="text" [(ngModel)]="restaurant.phoneNumber" name="phoneNumber" required />
   </div>
 
   <div>
-    <label for="email">Email</label>
+    <label for="email">{{ 'RESTAURANT_DETAILS.EMAIL' | translate }}</label>
     <input id="email" type="email" [(ngModel)]="restaurant.email" name="email" required />
   </div>
 
   <fieldset>
-    <legend>Working Hours</legend>
+    <legend>{{ 'RESTAURANT_DETAILS.WORKING_HOURS' | translate }}</legend>
     <div *ngFor="let day of daysOfWeek">
       <label [for]="day">{{ day }}</label>
       <input
@@ -54,35 +56,34 @@
   </fieldset>
 
   <div>
-    <label for="description">Description</label>
+    <label for="description">{{ 'RESTAURANT_DETAILS.DESCRIPTION' | translate }}</label>
     <textarea id="description" [(ngModel)]="restaurant.description" name="description" required></textarea>
   </div>
 
   <div>
-    <label for="opened">Opened</label>
+    <label for="opened">{{ 'RESTAURANT_DETAILS.OPENED' | translate }}</label>
     <input id="opened" type="checkbox" [(ngModel)]="restaurant.opened" name="opened" />
   </div>
 
   <div>
-    <label for="averageDeliveryTime">Average Delivery Time</label>
+    <label for="averageDeliveryTime">{{ 'RESTAURANT_DETAILS.AVERAGE_DELIVERY_TIME' | translate }}</label>
     <input id="averageDeliveryTime" type="number" min="1" [(ngModel)]="restaurant.averageDeliveryTime" name="averageDeliveryTime" required />
   </div>
 
   <div>
-    <label for="averageCustomerRating">Average Customer Rating</label>
+    <label for="averageCustomerRating">{{ 'RESTAURANT_DETAILS.AVERAGE_RATING' | translate }}</label>
     <input id="averageCustomerRating" type="number" min="1" max="5" [(ngModel)]="restaurant.averageCustomerRating" name="averageCustomerRating" required />
   </div>
 
   <div>
-    <label for="maxNumberOfOrders">Max Number of Orders</label>
-    <input id="maxNumberOfOrders" name="maxNumberOfOrders" type="number" min="1" [(ngModel)]="restaurant.maxNumberOfOrders" required
-    />
+    <label for="maxNumberOfOrders">{{ 'RESTAURANT_DETAILS.MAX_ORDERS' | translate }}</label>
+    <input id="maxNumberOfOrders" name="maxNumberOfOrders" type="number" min="1" [(ngModel)]="restaurant.maxNumberOfOrders" required />
   </div>
 
   <div>
-    <label for="michelinStars">Michelin Stars</label>
-    <input id="michelinStars" type="number" min="0" max="3"[(ngModel)]="restaurant.michelinStars" name="michelinStars" required />
+    <label for="michelinStars">{{ 'RESTAURANT_DETAILS.MICHELIN_STARS' | translate }}</label>
+    <input id="michelinStars" type="number" min="0" max="3" [(ngModel)]="restaurant.michelinStars" name="michelinStars" required />
   </div>
 
-  <button type="submit" [disabled]="!formRef.valid">Update Restaurant</button>
+  <button type="submit" [disabled]="!formRef.valid">{{ 'RESTAURANT_DETAILS.UPDATE_BUTTON' | translate }}</button>
 </form>

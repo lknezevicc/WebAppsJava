@@ -1,10 +1,23 @@
 <nav class="navbar">
   <ul class="nav-list">
     <li class="nav-item">
-      <a routerLink="/" routerLinkActive="active" class="nav-link">Restaurants List</a>
+      <a routerLink="/" routerLinkActive="active" class="nav-link">
+        {{ 'NAV.RESTAURANTS_LIST' | translate }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/me" routerLinkActive="active" class="nav-link">
+        {{ 'NAV.CURRENT_USER' | translate }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <button *ngIf="getCurrentLanguage() !== 'hr'" (click)="switchLanguage('hr')">🇭🇷 Hrvatski</button>
+      <button *ngIf="getCurrentLanguage() !== 'en'" (click)="switchLanguage('en')">🇬🇧 English</button>
     </li>
     <li class="nav-item" *ngIf="isLoggedIn()">
-      <button (click)="logout()">Logout</button>
+      <button (click)="logout()">
+        {{ 'NAV.LOGOUT' | translate }}
+      </button>
     </li>
   </ul>
 </nav>

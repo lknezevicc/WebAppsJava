@@ -1,35 +1,45 @@
 <div *ngIf="reviews.length > 0">
-  <h4>Reviews:</h4>
+  <h4>{{ 'RESTAURANT_REVIEWS.TITLE' | translate }}</h4>
   <ul>
     <li *ngFor="let review of reviews">
       <p><strong>{{ review.title }}</strong>: {{ review.description }}</p>
-      <p><em>Rating: {{ review.rating }}</em></p>
+      <p><em>{{ 'RESTAURANT_REVIEWS.FORM.RATING_PLACEHOLDER' | translate }}: {{ review.rating }}</em></p>
       <p><small>By: {{ review.username }}</small></p>
 
-      <button *ngIf="canEditReview(review)" (click)="startEdit(review)">Edit</button>
-      <button *ngIf="isAdmin" (click)="deleteReview(review.id)">Delete</button>
+      <button *ngIf="canEditReview(review)" (click)="startEdit(review)">
+        {{ 'RESTAURANT_REVIEWS.BUTTONS.EDIT' | translate }}
+      </button>
+      <button *ngIf="isAdmin" (click)="deleteReview(review.id)">
+        {{ 'RESTAURANT_REVIEWS.BUTTONS.DELETE' | translate }}
+      </button>
 
       <form *ngIf="editingReview?.id === review.id" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Title" formControlName="title" />
-        <textarea placeholder="Description" formControlName="description"></textarea>
+        <input type="text" placeholder="{{ 'RESTAURANT_REVIEWS.FORM.TITLE_PLACEHOLDER' | translate }}" formControlName="title" />
+        <textarea placeholder="{{ 'RESTAURANT_REVIEWS.FORM.DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="description"></textarea>
         <input type="number" min="1" max="5" formControlName="rating" />
-        <button type="submit" [disabled]="reviewForm.invalid">Update</button>
-        <button type="button" (click)="cancelEdit()">Cancel</button>
+        <button type="submit" [disabled]="reviewForm.invalid">
+          {{ 'RESTAURANT_REVIEWS.BUTTONS.UPDATE' | translate }}
+        </button>
+        <button type="button" (click)="cancelEdit()">
+          {{ 'RESTAURANT_REVIEWS.BUTTONS.CANCEL' | translate }}
+        </button>
       </form>
     </li>
   </ul>
 </div>
 
 <div *ngIf="reviews.length === 0">
-  <p>No reviews yet for this restaurant.</p>
+  <p>{{ 'RESTAURANT_REVIEWS.NO_REVIEWS' | translate }}</p>
 </div>
 
 <div *ngIf="showAddForm">
-  <h4>Add Review</h4>
+  <h4>{{ 'RESTAURANT_REVIEWS.ADD_REVIEW_TITLE' | translate }}</h4>
   <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Title" formControlName="title" />
-    <textarea placeholder="Description" formControlName="description"></textarea>
+    <input type="text" placeholder="{{ 'RESTAURANT_REVIEWS.FORM.TITLE_PLACEHOLDER' | translate }}" formControlName="title" />
+    <textarea placeholder="{{ 'RESTAURANT_REVIEWS.FORM.DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="description"></textarea>
     <input type="number" min="1" max="5" formControlName="rating" />
-    <button type="submit" [disabled]="reviewForm.invalid">Submit</button>
+    <button type="submit" [disabled]="reviewForm.invalid">
+      {{ 'RESTAURANT_REVIEWS.BUTTONS.SUBMIT' | translate }}
+    </button>
   </form>
 </div>

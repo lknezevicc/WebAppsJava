@@ -3,7 +3,7 @@
   <p class="username">{{ currentUser.username }}</p>
 
   <div class="group-section" *ngIf="currentUser.userGroups.length > 0">
-    <h4>Roles:</h4>
+    <h4>{{ 'CURRENT_USER.ROLES_TITLE' | translate }}</h4>
     <div class="badges">
       <span class="badge" *ngFor="let role of currentUser.userGroups">{{ role.role }}</span>
     </div>

@@ -6,11 +6,18 @@ import { AppComponent } from './app.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantReviewsComponent } from './components/restaurant-reviews/restaurant-reviews.component';
 import { LoginComponent } from './components/login/login.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -19,13 +26,22 @@ import { authInterceptor } from './interceptors/auth.interceptor';
     RestaurantDetailsComponent,
     NavbarComponent,
     RestaurantReviewsComponent,
-    LoginComponent
+    LoginComponent,
+    CurrentUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent]

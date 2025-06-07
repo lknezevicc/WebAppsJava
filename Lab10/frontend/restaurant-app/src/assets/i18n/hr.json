@@ -1,0 +1,77 @@
+{
+  "NAV": {
+    "RESTAURANTS_LIST": "Popis restorana",
+    "CURRENT_USER": "Trenutni korisnik",
+    "LOGOUT": "Odjava"
+  },
+  "CURRENT_USER": {
+    "ROLES_TITLE": "Uloge:"
+  },
+  "LOGIN": {
+    "TITLE": "Prijava",
+    "USERNAME": "Korisničko ime",
+    "PASSWORD": "Lozinka",
+    "BUTTON": "Prijavi se"
+  },
+  "RESTAURANT_DETAILS": {
+    "WORKING_HOURS": "Radno vrijeme:",
+    "ADDRESS": "Adresa:",
+    "PHONE": "Telefon:",
+    "EMAIL": "E-pošta:",
+    "DESCRIPTION": "Opis:",
+    "AVERAGE_DELIVERY_TIME": "Prosječno vrijeme dostave:",
+    "RATING": "Ocjena:",
+    "MICHELIN_STARS": "Michelin zvjezdice:",
+    "EDIT_TITLE": "Uredi restoran",
+    "NAME": "Naziv",
+    "PHONE_NUMBER": "Broj telefona",
+    "OPENED": "Otvoren",
+    "MAX_ORDERS": "Maksimalan broj narudžbi",
+    "AVERAGE_RATING": "Prosječna ocjena",
+    "UPDATE_BUTTON": "Ažuriraj restoran"
+  },
+  "RESTAURANT_LIST": {
+    "TITLE": "Restorani",
+    "TABLE": {
+      "NAME": "Naziv",
+      "OPEN": "Otvoren",
+      "LOAD": "Opterećenje",
+      "ACTIONS": "Akcije",
+      "YES": "Da",
+      "NO": "Ne",
+      "DELETE": "Obriši"
+    },
+    "ADD_TITLE": "Dodaj restoran",
+    "FORM": {
+      "NAME": "Naziv",
+      "ADDRESS": "Adresa",
+      "PHONE_NUMBER": "Broj telefona",
+      "EMAIL": "E-pošta",
+      "WORKING_HOURS": "Radno vrijeme",
+      "DESCRIPTION": "Opis",
+      "OPENED": "Otvoren",
+      "AVG_DELIVERY": "Prosječno vrijeme dostave",
+      "AVG_RATING": "Prosječna ocjena korisnika",
+      "MAX_ORDERS": "Maksimalan broj narudžbi",
+      "MICHELIN": "Michelin zvjezdice",
+      "SUBMIT": "Dodaj restoran"
+    }
+  },
+  "RESTAURANT_REVIEWS": {
+    "TITLE": "Recenzije:",
+    "NO_REVIEWS": "Još nema recenzija za ovaj restoran.",
+    "BUTTONS": {
+      "EDIT": "Uredi",
+      "DELETE": "Obriši",
+      "UPDATE": "Ažuriraj",
+      "CANCEL": "Odustani",
+      "SUBMIT": "Pošalji"
+    },
+    "FORM": {
+      "TITLE_PLACEHOLDER": "Naslov",
+      "DESCRIPTION_PLACEHOLDER": "Opis",
+      "RATING_PLACEHOLDER": "Ocjena (1-5)"
+    },
+    "ADD_REVIEW_TITLE": "Dodaj recenziju"
+  }
+}

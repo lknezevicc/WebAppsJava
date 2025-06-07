@@ -1,14 +1,14 @@
 <div class="login-container">
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="login-form">
-    <h2>Login</h2>
+    <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
 
-    <label for="username">Username</label>
+    <label for="username">{{ 'LOGIN.USERNAME' | translate }}</label>
     <input id="username" type="text" formControlName="username" />
 
-    <label for="password">Password</label>
+    <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
     <input id="password" type="password" formControlName="password" />
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">{{ 'LOGIN.BUTTON' | translate }}</button>
 
     <div class="error" *ngIf="error">{{ error }}</div>
   </form>

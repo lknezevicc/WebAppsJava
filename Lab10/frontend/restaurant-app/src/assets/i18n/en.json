@@ -1,0 +1,78 @@
+{
+  "NAV": {
+    "RESTAURANTS_LIST": "Restaurants List",
+    "CURRENT_USER": "Current User",
+    "LOGOUT": "Logout"
+  },
+  "CURRENT_USER": {
+    "ROLES_TITLE": "Roles:"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "BUTTON": "Login"
+  },
+  "RESTAURANT_DETAILS": {
+    "WORKING_HOURS": "Working Hours:",
+    "ADDRESS": "Address:",
+    "PHONE": "Phone:",
+    "EMAIL": "Email:",
+    "DESCRIPTION": "Description:",
+    "AVERAGE_DELIVERY_TIME": "Average Delivery Time:",
+    "RATING": "Rating:",
+    "MICHELIN_STARS": "Michelin Stars:",
+    "EDIT_TITLE": "Edit Restaurant",
+    "NAME": "Name",
+    "PHONE_NUMBER": "Phone Number",
+    "OPENED": "Opened",
+    "MAX_ORDERS": "Max Number of Orders",
+    "AVERAGE_RATING": "Average Customer Rating",
+    "UPDATE_BUTTON": "Update Restaurant"
+  },
+  "RESTAURANT_LIST": {
+    "TITLE": "Restaurants",
+    "TABLE": {
+      "NAME": "Name",
+      "OPEN": "Open",
+      "LOAD": "Load",
+      "ACTIONS": "Actions",
+      "YES": "Yes",
+      "NO": "No",
+      "DELETE": "Delete"
+    },
+    "ADD_TITLE": "Add Restaurant",
+    "FORM": {
+      "NAME": "Name",
+      "ADDRESS": "Address",
+      "PHONE_NUMBER": "Phone Number",
+      "EMAIL": "Email",
+      "WORKING_HOURS": "Working Hours",
+      "DESCRIPTION": "Description",
+      "OPENED": "Opened",
+      "AVG_DELIVERY": "Average Delivery Time",
+      "AVG_RATING": "Average Customer Rating",
+      "MAX_ORDERS": "Max Number of Orders",
+      "MICHELIN": "Michelin Stars",
+      "SUBMIT": "Add Restaurant"
+    }
+  },
+  "RESTAURANT_REVIEWS": {
+    "TITLE": "Reviews:",
+    "NO_REVIEWS": "No reviews yet for this restaurant.",
+    "BUTTONS": {
+      "EDIT": "Edit",
+      "DELETE": "Delete",
+      "UPDATE": "Update",
+      "CANCEL": "Cancel",
+      "SUBMIT": "Submit"
+    },
+    "FORM": {
+      "TITLE_PLACEHOLDER": "Title",
+      "DESCRIPTION_PLACEHOLDER": "Description",
+      "RATING_PLACEHOLDER": "Rating (1-5)"
+    },
+    "ADD_REVIEW_TITLE": "Add Review"
+  }
+
+}

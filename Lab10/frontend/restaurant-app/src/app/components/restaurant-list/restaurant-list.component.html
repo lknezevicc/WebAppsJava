@@ -1,55 +1,58 @@
-<h2>Restaurants</h2>
+<h2>{{ 'RESTAURANT_LIST.TITLE' | translate }}</h2>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Open</th>
-      <th>Load</th>
-      <th>Actions</th>
+      <th>{{ 'RESTAURANT_LIST.TABLE.NAME' | translate }}</th>
+      <th>{{ 'RESTAURANT_LIST.TABLE.OPEN' | translate }}</th>
+      <th>{{ 'RESTAURANT_LIST.TABLE.LOAD' | translate }}</th>
+      <th>{{ 'RESTAURANT_LIST.TABLE.ACTIONS' | translate }}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let restaurant of restaurants">
       <td><a href="/restaurants/{{ restaurant.id }}">{{ restaurant.name }}</a></td>
-      <td>{{ restaurant.opened ? 'Yes' : 'No' }}</td>
+      <td>{{ restaurant.opened ? ('RESTAURANT_LIST.TABLE.YES' | translate) : ('RESTAURANT_LIST.TABLE.NO' | translate) }}</td>
       <td>
         <span class="workload-indicator"
-          [ngClass]="getWorkloadPercentageLabel(restaurant.workloadPercentage)">
+              [ngClass]="getWorkloadPercentageLabel(restaurant.workloadPercentage)">
         </span>
         {{
           getWorkloadPercentageLabel(restaurant.workloadPercentage).toUpperCase()
         }}
       </td>
-      <td><button *ngIf="restaurant.id !== undefined" (click)="onDelete(restaurant.id)">Delete</button></td>
+      <td>
+        <button *ngIf="restaurant.id !== undefined" (click)="onDelete(restaurant.id)">
+          {{ 'RESTAURANT_LIST.TABLE.DELETE' | translate }}
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
 
-
-<h2>Add Restaurant</h2>
+<h2>{{ 'RESTAURANT_LIST.ADD_TITLE' | translate }}</h2>
 <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
   <div>
-    <label for="name">Name</label>
+    <label for="name">{{ 'RESTAURANT_LIST.FORM.NAME' | translate }}</label>
     <input id="name" name="name" type="text" [(ngModel)]="formModel.name" required />
   </div>
 
   <div>
-    <label for="address">Address</label>
+    <label for="address">{{ 'RESTAURANT_LIST.FORM.ADDRESS' | translate }}</label>
     <input id="address" name="address" type="text" [(ngModel)]="formModel.address" required />
   </div>
 
   <div>
-    <label for="phoneNumber">Phone Number</label>
+    <label for="phoneNumber">{{ 'RESTAURANT_LIST.FORM.PHONE_NUMBER' | translate }}</label>
     <input id="phoneNumber" name="phoneNumber" type="text" [(ngModel)]="formModel.phoneNumber" required />
   </div>
 
   <div>
-    <label for="email">Email</label>
+    <label for="email">{{ 'RESTAURANT_LIST.FORM.EMAIL' | translate }}</label>
     <input id="email" name="email" type="email" [(ngModel)]="formModel.email" required />
   </div>
 
   <fieldset>
-    <legend>Working Hours</legend>
+    <legend>{{ 'RESTAURANT_LIST.FORM.WORKING_HOURS' | translate }}</legend>
     <div *ngFor="let day of daysOfWeek">
       <label [for]="day">{{ day }}</label>
       <input
@@ -63,64 +66,36 @@
   </fieldset>
 
   <div>
-    <label for="description">Description</label>
+    <label for="description">{{ 'RESTAURANT_LIST.FORM.DESCRIPTION' | translate }}</label>
     <textarea id="description" name="description" [(ngModel)]="formModel.description" required></textarea>
   </div>
 
   <div>
-    <label for="opened">Opened</label>
+    <label for="opened">{{ 'RESTAURANT_LIST.FORM.OPENED' | translate }}</label>
     <input id="opened" name="opened" type="checkbox" [(ngModel)]="formModel.opened" />
   </div>
 
   <div>
-    <label for="averageDeliveryTime">Average Delivery Time</label>
-    <input
-      id="averageDeliveryTime"
-      name="averageDeliveryTime"
-      type="number"
-      min="1"
-      [(ngModel)]="formModel.averageDeliveryTime"
-      required
-    />
+    <label for="averageDeliveryTime">{{ 'RESTAURANT_LIST.FORM.AVG_DELIVERY' | translate }}</label>
+    <input id="averageDeliveryTime" name="averageDeliveryTime" type="number" min="1" [(ngModel)]="formModel.averageDeliveryTime" required />
   </div>
 
   <div>
-    <label for="averageCustomerRating">Average Customer Rating</label>
-    <input
-      id="averageCustomerRating"
-      name="averageCustomerRating"
-      type="number"
-      min="1"
-      max="5"
-      [(ngModel)]="formModel.averageCustomerRating"
-      required
-    />
+    <label for="averageCustomerRating">{{ 'RESTAURANT_LIST.FORM.AVG_RATING' | translate }}</label>
+    <input id="averageCustomerRating" name="averageCustomerRating" type="number" min="1" max="5" [(ngModel)]="formModel.averageCustomerRating" required />
   </div>
 
   <div>
-    <label for="maxNumberOfOrders">Max Number of Orders</label>
-    <input
-      id="maxNumberOfOrders"
-      name="maxNumberOfOrders"
-      type="number"
-      min="1"
-      [(ngModel)]="formModel.maxNumberOfOrders"
-      required
-    />
+    <label for="maxNumberOfOrders">{{ 'RESTAURANT_LIST.FORM.MAX_ORDERS' | translate }}</label>
+    <input id="maxNumberOfOrders" name="maxNumberOfOrders" type="number" min="1" [(ngModel)]="formModel.maxNumberOfOrders" required />
   </div>
 
   <div>
-    <label for="michelinStars">Michelin Stars</label>
-    <input
-      id="michelinStars"
-      name="michelinStars"
-      type="number"
-      min="0"
-      max="3"
-      [(ngModel)]="formModel.michelinStars"
-      required
-    />
+    <label for="michelinStars">{{ 'RESTAURANT_LIST.FORM.MICHELIN' | translate }}</label>
+    <input id="michelinStars" name="michelinStars" type="number" min="0" max="3" [(ngModel)]="formModel.michelinStars" required />
   </div>
 
-  <button type="submit" [disabled]="!formRef.valid">Add Restaurant</button>
+  <button type="submit" [disabled]="!formRef.valid">
+    {{ 'RESTAURANT_LIST.FORM.SUBMIT' | translate }}
+  </button>
 </form>
