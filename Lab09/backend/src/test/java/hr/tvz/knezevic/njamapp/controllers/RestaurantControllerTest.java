@@ -32,7 +32,6 @@ public class RestaurantControllerTest {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-
     private Restaurant testRestaurant;
 
     @BeforeEach

@@ -21,7 +21,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
 
     @Override
     public RefreshToken createRefreshToken(String username) {
-        refreshTokenRepository.findByUsername(username)
+        refreshTokenRepository.findRefreshTokenByUser_Username(username)
                 .ifPresent(refreshTokenRepository::delete);
 
         UserInfo user = userRepository.findByUsername(username)

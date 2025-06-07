@@ -17,9 +17,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -89,4 +88,50 @@ class ReviewControllerTest {
                         .content(objectMapper.writeValueAsString(command)))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void updateReview_shouldReturnCreated_whenUpdateIsSuccessful() throws Exception {
+        Long reviewId = 1L;
+        ReviewCommand command = new ReviewCommand("Updated Title", "Updated Description", 4, 2L);
+        ReviewDTO updatedReview = new ReviewDTO(reviewId, "Updated Title", "Updated Description", 4, "user123");
+
+        when(reviewService.updateReview(eq(reviewId), any(ReviewCommand.class)))
+                .thenReturn(Optional.of(updatedReview));
+
+        mockMvc.perform(put("/reviews/{id}", reviewId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(command)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.title").value("Updated Title"))
+                .andExpect(jsonPath("$.rating").value(4));
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void updateReview_shouldReturnNotFound_whenReviewDoesNotExist() throws Exception {
+        Long reviewId = 999L;
+        ReviewCommand command = new ReviewCommand("Nonexistent", "No review", 2, 3L);
+
+        when(reviewService.updateReview(eq(reviewId), any(ReviewCommand.class)))
+                .thenReturn(Optional.empty());
+
+        mockMvc.perform(put("/reviews/{id}", reviewId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(command)))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void deleteReview_shouldDeleteReview_whenValid() throws Exception {
+        doNothing().when(reviewService).delete(1L);
+
+        mockMvc.perform(delete("/reviews/1"))
+                .andExpect(status().isNoContent());
+
+        verify(reviewService, times(1)).delete(1L);
+    }
+
+
 }
