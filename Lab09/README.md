@@ -1,6 +1,6 @@
 # 📝 Tasks
 
-Implement additional testsbased on your own choice.
+Implement additional tests based on your own choice.
 
 
 ## 🛠️ Environment Note

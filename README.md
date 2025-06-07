@@ -53,6 +53,11 @@ WebAppsJava/
    - [Lab08 - Additional tasks](Lab08/README.md)
    - [Lab08 - Setup PDF](Lab08/Lab08.pdf)
 
+- [Lab09 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/a8efab8)
+   - [Lab09 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/19aa2ce)
+   - [Lab09 - Additional tasks](Lab09/README.md)
+   - [Lab09 - Setup PDF](Lab09/Lab09.pdf)
+
 ## 🚀 Getting Started
 ### Prerequisites
 Ensure you have the following installed:
