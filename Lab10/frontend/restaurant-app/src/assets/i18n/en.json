@@ -1,5 +1,6 @@
 {
   "NAV": {
+    "TOP_3_CHEAPEST": "Top 3 Cheapest Restaurants",
     "RESTAURANTS_LIST": "Restaurants List",
     "CURRENT_USER": "Current User",
     "LOGOUT": "Logout"
@@ -14,6 +15,7 @@
     "BUTTON": "Login"
   },
   "RESTAURANT_DETAILS": {
+    "TOP_3_CHEAPEST": "Top 3 Cheapest Restaurants",
     "WORKING_HOURS": "Working Hours:",
     "ADDRESS": "Address:",
     "PHONE": "Phone:",

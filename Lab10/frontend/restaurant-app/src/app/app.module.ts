@@ -14,6 +14,7 @@ import { authInterceptor } from './interceptors/auth.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CurrentUserComponent } from './components/current-user/current-user.component';
+import { TopCheapestRestaurantsComponent } from './components/top-cheapest-restaurants/top-cheapest-restaurants.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -27,7 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     RestaurantReviewsComponent,
     LoginComponent,
-    CurrentUserComponent
+    CurrentUserComponent,
+    TopCheapestRestaurantsComponent
   ],
   imports: [
     BrowserModule,

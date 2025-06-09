@@ -5,12 +5,14 @@ import { RestaurantDetailsComponent } from './components/restaurant-details/rest
 import { authGuard } from './guards/auth/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { CurrentUserComponent } from './components/current-user/current-user.component';
+import { TopCheapestRestaurantsComponent } from './components/top-cheapest-restaurants/top-cheapest-restaurants.component';
 
 const routes: Routes = [
   { path: '', component: RestaurantListComponent, canActivate: [authGuard] },
   { path: 'restaurants/:id', component: RestaurantDetailsComponent, canActivate: [authGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'me', component: CurrentUserComponent, canActivate: [authGuard] }
+  { path: 'me', component: CurrentUserComponent, canActivate: [authGuard] },
+  { path: 'top-3-cheapest', component: TopCheapestRestaurantsComponent, canActivate: [authGuard] }
 ];
 
 @NgModule({

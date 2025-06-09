@@ -57,4 +57,9 @@ public class RestaurantController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/top-3-cheapest")
+    public ResponseEntity<List<RestaurantDetailsDTO>> findTop3Cheapest() {
+        return ResponseEntity.ok(restaurantService.findTop3Cheapest());
+    }
+
 }

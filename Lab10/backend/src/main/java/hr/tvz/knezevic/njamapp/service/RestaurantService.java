@@ -18,4 +18,5 @@ public interface RestaurantService {
     Optional<RestaurantDTO> addRestaurant(RestaurantCommand restaurantCommand);
     Optional<RestaurantDetailsDTO> updateRestaurant(Long id, RestaurantCommand restaurantCommand);
     void deleteRestaurant(Long id);
+    List<RestaurantDetailsDTO> findTop3Cheapest();
 }

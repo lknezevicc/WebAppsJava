@@ -1,0 +1,32 @@
+<h2>{{ 'RESTAURANT_DETAILS.TOP_3_CHEAPEST' | translate }}</h2>
+
+<div *ngFor="let restaurant of cheapestRestaurants; let i = index" class="restaurant-card">
+  <h3>{{ i + 1 }}. {{ restaurant.name }}</h3>
+
+  <section class="working-hours">
+    <p><strong>{{ 'RESTAURANT_DETAILS.WORKING_HOURS' | translate }}</strong></p>
+    <ul>
+      <ng-container *ngFor="let entry of restaurant.workingHours">
+        <li *ngIf="entry.workingHour">
+          {{ entry.dayOfWeek }}: {{ entry.workingHour }}
+        </li>
+      </ng-container>
+    </ul>
+  </section>
+
+  <section class="contact-info">
+    <p><strong>{{ 'RESTAURANT_DETAILS.ADDRESS' | translate }}</strong>: {{ restaurant.address }}</p>
+    <p><strong>{{ 'RESTAURANT_DETAILS.PHONE' | translate }}</strong>: {{ restaurant.phoneNumber }}</p>
+    <p><strong>{{ 'RESTAURANT_DETAILS.EMAIL' | translate }}</strong>: {{ restaurant.email }}</p>
+  </section>
+
+  <section class="details">
+    <p><strong>{{ 'RESTAURANT_DETAILS.DESCRIPTION' | translate }}</strong></p>
+    <p>{{ restaurant.description }}</p>
+
+    <p><strong>{{ 'RESTAURANT_DETAILS.AVERAGE_DELIVERY_TIME' | translate }}</strong>: {{ restaurant.averageDeliveryTime }} min</p>
+    <p><strong>{{ 'RESTAURANT_DETAILS.RATING' | translate }}</strong>: {{ restaurant.averageCustomerRating }}</p>
+    <p><strong>{{ 'RESTAURANT_DETAILS.MICHELIN_STARS' | translate }}</strong>: {{ restaurant.michelinStars }}</p>
+  </section>
+
+</div>

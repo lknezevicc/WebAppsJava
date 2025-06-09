@@ -1,8 +1,17 @@
 # 📝 Tasks
 
+1. Backend Quartz Job – Top 3 Cheapest Restaurants
+	- Scheduled job fetches the 3 cheapest restaurants from the database.
+	- Logs these restaurants and saves them into the database.
+	- Handles lazy loading issues to avoid exceptions.
+	- Job starts 20 seconds after application startup and runs only once.
 
-
-
+2. Frontend – Display Top 3 Cheapest Restaurants
+	- Added a component that displays the top 3 cheapest restaurants.
+	- Sends GET request to backend to retrieve restaurant data.
+	- Displays restaurant details with proper formatting.
+	- Supports i18n translations for all labels.
+	- Styled with SCSS for better UI.
 
 
 ## 🛠️ Environment Note

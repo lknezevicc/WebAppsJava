@@ -8,6 +8,7 @@ import hr.tvz.knezevic.njamapp.model.Restaurant;
 import hr.tvz.knezevic.njamapp.repository.RestaurantRepository;
 import hr.tvz.knezevic.njamapp.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -86,6 +87,14 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public void deleteRestaurant(Long id) {
         restaurantRepository.deleteById(id);
+    }
+
+    @Override
+    public List<RestaurantDetailsDTO> findTop3Cheapest() {
+        return restaurantRepository.findTop3Cheapest(PageRequest.of(0, 3))
+                .stream()
+                .map(restaurantMapper::toDetailsDTO)
+                .toList();
     }
 
 }

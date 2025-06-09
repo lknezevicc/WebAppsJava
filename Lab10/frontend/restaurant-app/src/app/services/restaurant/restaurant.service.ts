@@ -31,4 +31,8 @@ export class RestaurantService {
   deleteRestaurant(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+  getCheapestRestaurants(): Observable<Restaurant[]> {
+    return this.httpClient.get<Restaurant[]>(`${this.baseUrl}/top-3-cheapest`);
+  }
 }

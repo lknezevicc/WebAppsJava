@@ -1,5 +1,6 @@
 {
   "NAV": {
+    "TOP_3_CHEAPEST": "Top 3 najjeftinija restorana",
     "RESTAURANTS_LIST": "Popis restorana",
     "CURRENT_USER": "Trenutni korisnik",
     "LOGOUT": "Odjava"
@@ -14,6 +15,7 @@
     "BUTTON": "Prijavi se"
   },
   "RESTAURANT_DETAILS": {
+    "TOP_3_CHEAPEST": "Top 3 najjeftinija restorana",
     "WORKING_HOURS": "Radno vrijeme:",
     "ADDRESS": "Adresa:",
     "PHONE": "Telefon:",

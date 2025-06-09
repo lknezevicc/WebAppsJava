@@ -24,7 +24,7 @@ public class Restaurant {
     private String phoneNumber;
     private String email;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<WorkingHour> workingHours;
 
     private String description;

@@ -20,6 +20,8 @@ public interface RestaurantMapper {
     RestaurantDTO toDto(Restaurant restaurant);
     RestaurantDetailsDTO toDetailsDTO(Restaurant restaurant);
     Restaurant toEntity(RestaurantCommand command);
+    Restaurant fromDetailsToEntity(RestaurantDetailsDTO dto);
+    RestaurantCommand toCommand(Restaurant restaurant);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(source = "workingHours", target = "workingHours")
