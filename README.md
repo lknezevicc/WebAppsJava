@@ -57,6 +57,11 @@ WebAppsJava/
    - [Lab09 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/19aa2ce)
    - [Lab09 - Additional tasks](Lab09/README.md)
    - [Lab09 - Setup PDF](Lab09/Lab09.pdf)
+ 
+- [Lab10 - Setup](https://github.com/lknezevicc/WebAppsJava/commit/89fe706)
+   - [Lab10 - Solved](https://github.com/lknezevicc/WebAppsJava/commit/c74df5a)
+   - [Lab10 - Additional tasks](Lab10/README.md)
+   - [Lab10 - Setup PDF](Lab10/Lab10.pdf)
 
 ## 🚀 Getting Started
 ### Prerequisites
